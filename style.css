@@ -58,7 +58,6 @@ body.theme-hiver {
 
 /* --- 🔥 MÉTÉO PLUVIEUSE : L'EFFET SOMBRE RETROUVÉ ! --- */
 body.weather-pluvieux {
-    /* Assombrit de 25% et baisse un peu les couleurs pour l'ambiance pluie */
     filter: saturate(70%) brightness(75%); 
 }
 
@@ -205,8 +204,39 @@ header h1 i { color: var(--text-muted); }
 .delay-2 { animation-delay: 0.3s; }
 .delay-3 { animation-delay: 0.5s; }
 
+/* =========================================
+   📱 RESPONSIVE MOBILE (Pour libérer le scroll !)
+   ========================================= */
 @media (max-width: 900px) {
-    .luxury-layout { flex-direction: column; height: auto; overflow: visible; }
-    .sidebar { width: 100%; padding: 2rem; min-height: 50vh; }
-    .editorial-view { height: 100vh; }
+    /* On réactive le défilement naturel de la page */
+    body, html {
+        overflow-y: auto;
+        height: auto;
+    }
+
+    /* On passe d'un affichage côte à côte à un affichage de haut en bas */
+    .luxury-layout {
+        flex-direction: column;
+        height: auto; 
+        min-height: 100vh;
+    }
+
+    /* Le menu de gauche passe en haut et prend toute la largeur */
+    .sidebar {
+        width: 100%;
+        padding: 2rem;
+        height: auto;
+        min-height: auto; 
+        position: relative; 
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    }
+
+    /* La zone d'affichage des tenues s'adapte et laisse filer le scroll */
+    .editorial-view {
+        width: 100%;
+        height: auto; /* C'est ce qui bloquait le scroll avant ! */
+        overflow: visible; 
+        padding-bottom: 50px; 
+    }
 }
