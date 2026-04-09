@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Édito VIP | Métamorphose Saisonnière</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="theme-printemps weather-soleil">
+
+    <!-- 🔝 HEADER MODERNE MINIMAL -->
+    <header style="position: fixed; top: 0; left: 0; width: 100%; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 20; pointer-events: none;">
+        
+        <div style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6;">
+            Collection Privée
+        </div>
+
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; letter-spacing: 2px;">
+            L'Édito VIP
+        </div>
+
+    </header>
+
+    <div class="luxury-layout">
+        
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <header>
+                    <span class="subtitle">Personal Shopper</span>
+                    <h1>L'Édito.<br><i>Saison</i></h1>
+                </header>
+
+                <div class="control-panel">
+                    
+                    <div class="input-line">
+                        <label for="season-selector">Sélectionnez la saison</label>
+                        <select id="season-selector" class="minimal-select season-select">
+                            <option value="ete">☀️ Été/Printemps</option>
+                            <option value="automne">🍂 Automne</option>
+                            <option value="hiver">❄️ Hiver</option>
+                        </select>
+                    </div>
+
+                    <div class="input-line">
+                        <label for="meteo-selector">Atmosphère</label>
+                        <select id="meteo-selector" class="minimal-select meteo-select">
+                            <option value="soleil" selected>☀️ Ensoleillé</option>
+                            <option value="pluvieux">🌧️ Pluvieux</option>
+                        </select>
+                    </div>
+
+                    <div class="input-line">
+                        <label for="event-selector">Sélectionnez le programme</label>
+                        <select id="event-selector" class="minimal-select event-select">
+                            <option value="default" disabled selected>Votre agenda du jour...</option>
+
+                            <optgroup label="Carrière & Profession">
+                                <option value="entretien">Entretien d'Embauche / Stage</option>
+                                <option value="bureau">Journée au Bureau</option>
+                            </optgroup>
+
+                            <optgroup label="Rendez-vous & Romance">
+                                <option value="date_restaurant">Dîner romantique</option>
+                                <option value="balade">Balade à deux</option>
+                            </optgroup>
+
+                            <optgroup label="Soirées & Événements">
+                                <option value="soirée_gala">Soirée de Gala</option>
+                                <option value="clubbing">Soirée en Boîte / Amis</option>
+                                <option value="mariage">Invitée à un Mariage</option>
+                            </optgroup>
+
+                            <optgroup label="Sorties & Culture">
+                                <option value="shopping">Session shopping</option>
+                                <option value="ceremonie">Cérébration / Cérémonie</option>
+                                <option value="voyage">Voyage / Aéroport</option>
+                            </optgroup>
+
+                            <optgroup label="Maison & Détente">
+                                <option value="cocooning">Journée Cocooning / Maison</option>
+                                <option value="teletravail">Télétravail</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <button id="generate-btn" class="couture-btn">
+                        Dévoiler les looks
+                    </button>
+                </div>
+
+                <div id="beauty-tip" class="beauty-section hidden">
+                    <span class="beauty-label">Signature Beauté</span>
+                    <div class="lipstick-display">
+                        <div id="lip-swatch" class="swatch-minimal"></div>
+                        <span id="lip-name">...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>© 2026 Collection Privée</p>
+            </div>
+        </aside>
+
+        <main class="editorial-view">
+            
+            <div id="rain-drops-burst" class="hidden"></div> 
+
+            <div id="empty-state" class="overlay-state">
+                <h2 class="huge-text">STYLE<br>IS AN<br>ATTITUDE.</h2>
+            </div>
+
+            <div id="loader" class="overlay-state hidden">
+                <div class="line-spinner"></div>
+                <p>Création des silhouettes sur-mesure...</p>
+            </div>
+
+            <div id="all-outfits" class="hidden">
+                
+                <h3 class="outfit-level-title">L'Essentiel</h3>
+                <div class="asymmetric-grid" id="grid-epure">
+                    <div class="grid-item item-main"><img src="" alt="Pièce 1"><div class="item-overlay"><span>Pièce Maîtresse</span></div></div>
+                    <div class="grid-item item-secondary"><img src="" alt="Pièce 2"><div class="item-overlay"><span>Complément</span></div></div>
+                    <div class="grid-item item-tertiary"><img src="" alt="Shoes"><div class="item-overlay"><span>Souliers</span></div></div>
+                    <div class="grid-item item-quaternary"><img src="" alt="Accessoire"><div class="item-overlay"><span>Détail</span></div></div>
+                </div>
+
+                <h3 class="outfit-level-title">L'Allure</h3>
+                <div class="asymmetric-grid" id="grid-elegance">
+                    <div class="grid-item item-main"><img src="" alt="Pièce 1"><div class="item-overlay"><span>Pièce Maîtresse</span></div></div>
+                    <div class="grid-item item-secondary"><img src="" alt="Pièce 2"><div class="item-overlay"><span>Complément</span></div></div>
+                    <div class="grid-item item-tertiary"><img src="" alt="Shoes"><div class="item-overlay"><span>Souliers</span></div></div>
+                    <div class="grid-item item-quaternary"><img src="" alt="Accessoire"><div class="item-overlay"><span>Détail</span></div></div>
+                </div>
+
+                <h3 class="outfit-level-title">L'Incontournable</h3>
+                <div class="asymmetric-grid" id="grid-couture">
+                    <div class="grid-item item-main"><img src="" alt="Pièce 1"><div class="item-overlay"><span>Pièce Maîtresse</span></div></div>
+                    <div class="grid-item item-secondary"><img src="" alt="Pièce 2"><div class="item-overlay"><span>Complément</span></div></div>
+                    <div class="grid-item item-tertiary"><img src="" alt="Shoes"><div class="item-overlay"><span>Souliers</span></div></div>
+                    <div class="grid-item item-quaternary"><img src="" alt="Accessoire"><div class="item-overlay"><span>Détail</span></div></div>
+                </div>
+                
+                <div style="height: 15vh;"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 🔻 FOOTER GLOBAL MODERNE -->
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; font-size: 0.7rem; letter-spacing: 2px; padding: 0.8rem; opacity: 0.6; pointer-events: none;">
+        © 2026 L'Édito VIP — Collection Privée
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
